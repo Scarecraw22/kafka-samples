@@ -1,0 +1,49 @@
+plugins {
+    id 'groovy'
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+def groovyVersion = '3.0.9'
+def lombokVersion = '1.18.22'
+def slf4jVersion = '1.7.32'
+def springBootVersion = '2.5.5'
+def springKafkaVersion = '2.7.8'
+def jacksonVersion = '2.13.0'
+def spockVersion = '2.0-groovy-3.0'
+def jUnitVersion = '5.8.1'
+
+dependencies {
+    implementation group: 'org.codehaus.groovy', name:'groovy-all', version: groovyVersion
+
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: lombokVersion
+    testImplementation group: 'org.projectlombok', name: 'lombok', version: lombokVersion
+
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: slf4jVersion
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: springBootVersion
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter', version: springBootVersion
+    implementation group: 'org.springframework.kafka', name: 'spring-kafka', version: springKafkaVersion
+    implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jdk8', version: jacksonVersion
+    implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: jacksonVersion
+
+    testImplementation group: 'org.spockframework', name: 'spock-core', version: spockVersion
+    testImplementation group: 'org.spockframework', name: 'spock-spring', version: spockVersion
+    testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: springBootVersion
+    testImplementation group: 'org.springframework.kafka', name: 'spring-kafka-test', version: springKafkaVersion
+
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: jUnitVersion
+    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: jUnitVersion
+
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: lombokVersion
+    testAnnotationProcessor group: 'org.projectlombok', name: 'lombok', version: lombokVersion
+}
+
+test {
+    useJUnitPlatform()
+}

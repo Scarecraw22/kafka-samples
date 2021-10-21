@@ -1,0 +1,15 @@
+spring:
+  groovy:
+    template:
+      check-template-location: false
+
+pl:
+  oskar:
+    kafka:
+      bootstrapServers: localhost:9092
+      securityProtocol: PLAINTEXT
+      saslMechanism: PLAIN
+      saslJaasConfig: \
+        org.apache.kafka.common.security.plain.PlainLoginModule required \
+        username="sample_user"\
+        password="sample_password";
